@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="http://example.com">テスト</a>
+    <script>
+      const a = document.querySelector('a');
+      a.addEventListener('click', (e) => {
+        //  aタグは初期設定でクリックすると自動でリンクに飛び、画面を再読み込みする。
+        // 「e.preventDefault();」で初期設定を止める。
+        e.preventDefault();
+        a.textContent = 'aタグ';
+      });
+    </script>
+  </body>
+</html>

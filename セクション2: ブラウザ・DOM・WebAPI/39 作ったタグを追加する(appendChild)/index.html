@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .red {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="grand_father">
+      <div id="parent">
+        <div id="target">自分</div>
+      </div>
+    </div>
+    <div id="div_list">
+      <div class="div1">テスト1</div>
+      <div class="div2">テスト2</div>
+      <div class="div3">テスト3</div>
+    </div>
+    <script>
+      const target = document.getElementById('target');
+
+      const newDiv = document.createElement('div');
+      newDiv.id = 'test';
+      newDiv.classList.add('red');
+      newDiv.textContent = 'テスト';
+
+      //  子要素の追加 (最後)
+      target.appendChild(newDiv);
+
+      //  兄弟要素の追加 (最後)
+      // target.parentNode.appendChild(newDiv);
+
+      const targetList = document.getElementById('div_list');
+      //  子要素の取得 (最初)
+      const div1 = targetList.firstElementChild;
+
+      const div2 = document.querySelector('.div2');
+
+      //  兄弟要素の取得 (次)
+      const div3 = document.querySelector('.div2').nextElementSibling;
+
+      const newElement = document.createElement('div');
+      newElement.classList.add('div4');
+      newElement.textContent = 'テスト4';
+
+      //  子要素の追加 (指定した位置の前)
+      targetList.insertBefore(newElement, div2);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>戻る</button>
+    <script>
+      // 「location.href」でURLを取得する。
+      location.href;
+      // 「location.search」でクエリーストリングを取得する。
+      location.search;
+
+      // window.addEventListener('load', () => {
+      //   「location.href = 'URL'」でURLにリダイレクトする。
+      //   location.href = 'http://example.com';
+      // });
+
+      const btn = document.querySelector('button');
+      btn.addEventListener('click', () => {
+        // 「history.back();」で前の画面に戻る。
+        history.back();
+      });
+    </script>
+  </body>
+</html>

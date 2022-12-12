@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      const span = document.createElement('span');
+      span.textContent = decodeURI(window.location.pathname);
+      document.body.appendChild(span);
+    </script>
+    <h2>編集用ファイル</h2>
+    <a href="../end" style="font-weight: 600; color: red"> 完成ファイルへ </a>
+
+    <div>
+      <a href="../../" style="margin-right: 10px"> セクションへ </a>
+
+      <a href="../../../"> コースへ </a>
+    </div>
+    <!--  スクリプトを非同期処理にしたい場合は「defer」を付与する。 -->
+    <script src="main.js" defer></script>
+    <!-- 通常のファイルを複数回読み込んだ場合、その回数分読み込まれる (実行される)。 -->
+    <script src="main.js" defer></script>
+    <!-- 「type="module"」とした場合「defer」が自動的に付与される。 -->
+    <script type="module" src="moduleB.js"></script>
+    <!-- 「ES Modules (ESM)」のファイルを複数回読み込んだ場合、1回のみ読み込まれる (実行される)。 -->
+    <script type="module" src="moduleB.js"></script>
+    <h1>ES Modules</h1>
+    <!-- 「nomodule」とした場合「ES Modules (ESM)」に対応していないブラウザの時に実行される。 -->
+    <script nomodule>
+      alert('ES Modulesに対応しておりません。');
+    </script>
+  </body>
+</html>

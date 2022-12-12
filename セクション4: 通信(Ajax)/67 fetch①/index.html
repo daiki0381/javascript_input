@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img />
+    <script>
+      const img = document.querySelector('img');
+      // 「fetch」は、サーバー上からデータを取得できる。
+      // 「fetch」の第1引数にデータを取得したいURL (ファイル) を設定する。
+      // 「fetch」の第2引数にオブジェクト (リクエストの詳細) を設定する。
+      // 「fetch」は「Promise」を返却する。
+      //  thenメソッドのコールバック関数の引数 (response) にはサーバーから返却されたデータが格納されている。
+      fetch('https://dog.ceo/api/breeds/image/random', { method: 'GET' })
+        .then((response) => {
+          //  非同期処理をチェーンさせるには、thenメソッドのコールバック関数内の「return」にPromiseのインスタンスを設定する。
+          // 「response.json()」は、JSON情報が格納された「Promise」を返却する。
+          return response.json();
+          //  thenメソッドのコールバック関数の引数 (json) にはJSONファイルから取得したデータが格納されている。
+        })
+        .then((json) => {
+          img.src = json.message;
+        });
+    </script>
+  </body>
+</html>

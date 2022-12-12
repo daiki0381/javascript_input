@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="form">
+      <label for="your_name">氏名</label>
+      <input
+        id="your_name"
+        type="text"
+        name="your_name"
+        placeholder="氏名を入力してください。"
+      />
+      <br />
+      <label for="comment">コメント</label>
+      <input
+        id="comment"
+        type="text"
+        name="comment"
+        placeholder="コメントを入力してください。"
+      />
+      <br />
+      <button>送信</button>
+    </form>
+    <script>
+      const btn = document.querySelector('button');
+      btn.addEventListener('click', () => {
+        const form = document.forms.form;
+        // 「new FormData(フォーム);」でフォームのデータを格納したオブジェクトが返却される。
+        const formData = new FormData(form);
+        (async () => {
+          const response = await fetch(
+            'https://coinbaby8.com/udemy_js_api/api/udemy_js',
+            {
+              method: 'POST',
+              body: formData,
+            }
+          );
+          try {
+            if (response.ok) {
+              const json = await response.json();
+              console.log(json);
+            } else {
+              throw new Error('Failed to fetch');
+            }
+          } catch (e) {
+            console.error(e.message);
+          }
+        })();
+      });
+
+      (async () => {
+        const response = await fetch(
+          'https://coinbaby8.com/udemy_js_api/api/udemy_js',
+          {
+            method: 'GET',
+          }
+        );
+        try {
+          if (response.ok) {
+            const json = await response.json();
+            console.log(json);
+          } else {
+            throw new Error('Failed to fetch');
+          }
+        } catch (e) {
+          console.error(e.message);
+        }
+      })();
+    </script>
+  </body>
+</html>

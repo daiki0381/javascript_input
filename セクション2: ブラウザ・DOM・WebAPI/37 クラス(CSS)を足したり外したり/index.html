@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .red {
+      color: red;
+    }
+    .blue {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <div id="test">
+    <ul>
+      <li class="test_list blue">テスト1</li>
+      <li class="test_list">テスト2</li>
+      <li class="test_list">テスト3</li>
+    </ul>
+  </div>
+  <script>
+    const test1 = document.getElementById('test');
+    test1.classList.add('red');
+
+    const test2 = document.querySelector('.test_list');
+    test2.classList.remove('blue');
+
+    const test3 = document.querySelectorAll('.test_list');
+    test3.forEach(list => {
+      list.classList.add('blue');
+    });
+  </script>
+</body>
+</html>
